@@ -348,18 +348,18 @@ footer{
 
 
 const ROW1 = [
-  "b693f88f-a618-4da3-8d47-459378252604.JPG",
+  "b693f88f-a618-4da3-8d47-459378252604.jpg", // Kept lowercase to match GitHub list
   "FDFC643D-C7C5-43E6-BD51-77BB3F1DA239.jpg",
   "IMG_0234.jpg",
   "IMG_9742.jpg",
   "IMG_9657.jpg",
-  "IMG_9084.JPG",
+  "IMG_9084.JPG", // Case-sensitive uppercase
 ];
 
 const ROW2 = [
   "IMG_0236.jpg",
   "IMG_0436.jpg",
-  "IMG_0710.JPG",
+  "IMG_0710.JPG", // Case-sensitive uppercase
   "IMG_0811.jpg",
   "IMG_7977.jpg",
   "IMG_8035.jpg",
@@ -369,10 +369,54 @@ const ROW3 = [
   "IMG_8038.jpg",
   "IMG_8355.jpg",
   "IMG_0811.jpg",
-  "IMG_9084.JPG",
+  "IMG_9084.JPG", // Case-sensitive uppercase
   "IMG_8037.jpg",
   "IMG_9742.jpg",
 ];
+
+export default function ImageGallery() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px' }}>
+      
+      {/* ROW 1 */}
+      <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
+        {ROW1.map((img, index) => (
+          <img 
+            key={`row1-${index}`} 
+            src={`/${img}`} // FIXED: Starting with / and removing "public"
+            alt="" 
+            style={{ width: '200px', height: '150px', objectFit: 'cover', borderRadius: '8px' }} 
+          />
+        ))}
+      </div>
+
+      {/* ROW 2 */}
+      <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
+        {ROW2.map((img, index) => (
+          <img 
+            key={`row2-${index}`} 
+            src={`/${img}`} // FIXED: Starting with / and removing "public"
+            alt="" 
+            style={{ width: '200px', height: '150px', objectFit: 'cover', borderRadius: '8px' }} 
+          />
+        ))}
+      </div>
+
+      {/* ROW 3 */}
+      <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
+        {ROW3.map((img, index) => (
+          <img 
+            key={`row3-${index}`} 
+            src={`/${img}`} // FIXED: Starting with / and removing "public"
+            alt="" 
+            style={{ width: '200px', height: '150px', objectFit: 'cover', borderRadius: '8px' }} 
+          />
+        ))}
+      </div>
+
+    </div>
+  );
+}
 
 // ================================================================
 //  CAPTIONS  (shown on hover — edit freely or leave as-is)
